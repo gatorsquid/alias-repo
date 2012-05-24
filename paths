@@ -1,0 +1,4 @@
+on mcoleman-z400RH:
+~/.bashrc 
+/etc/vimrc
+~/.cshrc
