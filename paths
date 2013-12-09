@@ -2,3 +2,8 @@ on mcoleman-z400RH:
 ~/.bashrc 
 /etc/vimrc
 ~/.cshrc
+
+on macdarcydarcy:
+~/.bashrc
+/usr/share/vim
+~/.cshrc
