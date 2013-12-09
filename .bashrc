@@ -68,7 +68,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+#    alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -106,54 +106,102 @@ fi
 #
 
 # vvvvvv Micah's aliases vvvvv
-alias l='ls --color=auto -lahtr'
+alias df='df -h'
+alias l='ls -lahtrG'
+alias ld='l | grep ^d'
+alias ldnod='ld | grep -Ev "\.\S*$"'
+alias lnod='l | grep -Ev "\.\S*$"'
+cdl() { cd $1; l;}
 alias cp='cp -p'
 alias du='du -h'
-alias d='du -h --max-depth=1'
-alias grep='grep -n --color=auto'
-alias g='grep'
+# alias d='du -h --max-depth=1'
+alias d='du -h -d 1'
+alias dg='d | grep G'
+# alias grep='grep -n --color=auto'
+alias g='grep -n --color=auto'
 alias p='python'
-alias gost='cd ~/adams/stinger'
+alias pmc='python -m cProfile -s time'
+export PYTHONPATH=/Library/Python/2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7:/usr/local/lib/python2.7/site-packages/:/usr/local/lib/python2.7/site-packages/gtk-2.0
+alias bc='bc -q'
+alias pe='perl'
+alias pw='perl -w'
 alias godb='cd ~/Dropbox'
 alias cut='cut --delimiter=" "'
 alias vib='vi ~/.bashrc'
 alias sob='source ~/.bashrc'
+alias viv='sudo vi /usr/share/vim/vimrc'
 alias goback='cd $OLDPWD'
 alias vi='vim'
 alias h='head'
 alias h1='head -1'
 alias h2='head -2'
+alias h3='head -3'
+alias h4='head -4'
+alias h5='head -5'
 alias t='tail'
 alias t1='tail -1'
-alias t2='tail -2i'
-go() { cd ~/$1;}
+alias t2='tail -2'
+alias t3='tail -3'
+alias t4='tail -4'
+alias t5='tail -5'
+alias hist='history'
+alias hi='history'
+alias ht='history | tail'
+go() { cd ~/$1; }
+bb() { echo $1 | bc -l; }
+export rhip=10.15.50.108
+alias sshrhip='ssh mcoleman@10.15.50.108'
+alias fii='find . -iname '
+alias fwc='find . | wc'
+alias lwc='l . | wc'
+alias wcl='wc -l'
+alias r='fc -s'
+alias r2='r -2'
+alias r3='r -3'
+alias fcl='fc -l'
+alias sdix='ssh -N -L 12343:localhost:80 gitolite@dixie.elsys.private &'
+alias eject='diskutil unmount'
+alias colget='python ~/colget.py'
 # ^^^^^^ end Micah's aliases ^^^^
 
 
-# vvvvv git aliases vvvvvvvvvv
+
+# vvvvv Micah's git aliases vvvvvvvvvv
+alias ga='git add'
+alias gd='git diff'
+alias gdt='git difftool'
 alias gl='git log --graph'
 alias gs='git status'
-alias gb='git branch'
+alias gb='git branch -av'
+alias gh='git help'
 alias gf='git fetch'
-# ^^^^^ end git aliases ^^^^^^
+alias gfb='gf;gb'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git commit -m'
+alias grs='git remote -v show'
+# ^^^^^ end Micah's git aliases ^^^^^^
 
-# vvvvvvvvvvvvvvvvvv borrowed from Michael Noll's Ubuntu tutorial -msc 20jul11 vvvvvvvvvvvv
-# Set Hadoop-related environment variables
-export HADOOP_HOME=/usr/local/hadoop
 
-# Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 
-# some convenient aliases and functions for running Hadoop-related commands
-unalias fs &> /dev/null
-alias fs="hadoop fs"
-unalias hls &> /dev/null
-alias hls="fs -ls"
 
-# Add Hadoop bin/ directory to PATH
-export PATH=$PATH:$HADOOP_HOME/bin
-
-# ^^^^^^^^^^^^^^^^^^ end Michael Noll additions -msc 20jul11 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# # vvvvvvvvvvvvvvvvvv borrowed from Michael Noll's Ubuntu tutorial -msc 20jul11 vvvvvvvvvvvv
+# # Set Hadoop-related environment variables
+# export HADOOP_HOME=/usr/local/hadoop
+# 
+# # Set JAVA_HOME
+# export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+# 
+# # some convenient aliases and functions for running Hadoop-related commands
+# unalias fs &> /dev/null
+# alias fs="hadoop fs"
+# unalias hls &> /dev/null
+# alias hls="fs -ls"
+# 
+# # Add Hadoop bin/ directory to PATH
+# export PATH=$PATH:$HADOOP_HOME/bin
+# 
+# # ^^^^^^^^^^^^^^^^^^ end Michael Noll additions -msc 20jul11 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # vvvvvvvvvvvvvvvvvv Java vvvvvvvvvvvvvvv
 alias j='java'

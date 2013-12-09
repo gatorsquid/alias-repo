@@ -85,7 +85,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-  " vvvvvvvvv my own vimisms follow. -msc vvvvvvvv
+  " vvvvvvvvv micah's vimisms vvvvvvvv
   set number
   set hlsearch
   set incsearch
@@ -93,4 +93,22 @@ endif
   set shiftwidth=4
   set autoindent
   set smartindent
+  colorscheme darkblue
+  let $MYVIMRC = "/usr/share/vim/vimrc"
+  let mapleader = "-"
+  nnoremap <leader>ok 0r✓
+  nnoremap <leader>ok 0i✓ <esc>:.s/✓  /✓ /<cr>:.s/✓  /✓ /<cr> 
+" replace first character of line, presumably a comment indicator, with a
+" space.  would prefer to allow to replace with any character desired and to
+" return the cursor position. don't think i can use ctrl-o as the current
+" cursor position may not be on the jumplist.
+  nnoremap <leader>0<space> 0r<space>;
+  nnoremap <leader>0# 0r#
+  nnoremap <leader>viv :split $MYVIMRC<cr> 
+  nnoremap <leader>sov :source $MYVIMRC
+  nnoremap <leader><leader> :
+  nnoremap <leader>a @
+
+  inoremap fj <esc>
+  vnoremap fj <esc>
 

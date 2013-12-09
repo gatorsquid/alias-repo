@@ -73,19 +73,24 @@ endif
 
 setenv LD_LIBRARY_PATH /usr/local/lib
 
-# vvvvvv Micah's aliases vvvvv
-alias l 'ls --color=auto -lahtr'
+# vvvvvv micah's aliases vvvvv
+alias l 'ls -lahtrG'
+alias ld 'l | grep ^d'
+alias ldnod 'ld | grep -Ev "\.\S*$"'
 alias cp 'cp -p'
 alias du 'du -h'
-alias d 'du -h --max-depth=1'
+# alias d 'du -h --max-depth=1'
+alias d 'du -h -d 1'
 alias grep 'grep -n --color=auto'
 alias g 'grep'
 alias p 'python'
+alias pe 'perl'
+alias pw 'perl -w'
 alias gost 'cd ~/adams/stinger'
 alias godb 'cd ~/Dropbox'
-alias cut 'cut --delimiter=" "'
-alias vib 'vi ~/.bashrc'
-alias sob 'source ~/.bashrc'
+alias cut 'cut --delimiter " "'
+alias vib 'vi ~/.cshrc'
+alias sob 'source ~/.cshrc'
 alias goback 'cd $OLDPWD'
 alias vi 'vim'
 alias h 'head'
@@ -93,13 +98,27 @@ alias h1 'head -1'
 alias h2 'head -2'
 alias t 'tail'
 alias t1 'tail -1'
-alias t2 'tail -2i'
+alias t2 'tail -2'
+alias sshrhip 'ssh mcoleman@10.15.50.108'
+alias hist 'history'
+alias hi 'history'
+alias go 'cd ~/\!:1'
+# go() { cd ~/$1; }   # the bash version
+alias sdix 'ssh -N -L 12343:localhost:80 gitolite@dixie.elsys.private &'
 # ^^^^^^ end Micah's aliases ^^^^
 
-
 # vvvvv git aliases vvvvvvvvvv
-alias gl 'git log'
-alias gs 'git status'
-alias gb 'git branch'
+alias ga 'git add'
+alias gd 'git diff'
+alias gl 'git log --graph'
+alias gs 'git status | grep -v doc'
+alias gb 'git branch -av'
+alias gh 'git help'
 alias gf 'git fetch'
+alias gfb 'gf;gb'
+alias gc 'git checkout'
+alias gcb 'git checkout -b'
+alias gcm 'git commit -m'
 # ^^^^^ end git aliases ^^^^^^
+
+
