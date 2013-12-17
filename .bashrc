@@ -113,9 +113,11 @@ alias ldnod='ld | grep -Ev "\.\S*$"'
 alias lnod='l | grep -Ev "\.\S*$"'
 cdl() { cd $1; l;}
 alias cp='cp -p'
-alias du='du -h'
-# alias d='du -h --max-depth=1'
-alias d='du -h -d 1'
+if  [ `uname` = 'Darwin' ]; then
+    alias d='du -h -d 1'
+else
+    alias d='du -h --max-depth=1'
+fi
 alias dg='d | grep G'
 # alias grep='grep -n --color=auto'
 alias g='grep -n --color=auto'
