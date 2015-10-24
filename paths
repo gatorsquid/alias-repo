@@ -3,7 +3,12 @@ on mcoleman-z400RH:
 /etc/vimrc
 ~/.cshrc
 
-on macdarcydarcy:
+on macdarcy:
 ~/.bashrc
 ~/.vimrc
+~/.cshrc
+
+on darcy76:
+~/.bashrc
+/usr/share/vim/vimrc
 ~/.cshrc
