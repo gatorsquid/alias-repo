@@ -5,5 +5,5 @@ on mcoleman-z400RH:
 
 on macdarcydarcy:
 ~/.bashrc
-/usr/share/vim
+~/.vimrc
 ~/.cshrc

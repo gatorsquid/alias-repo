@@ -111,4 +111,6 @@ endif
 
   inoremap fj <esc>
   vnoremap fj <esc>
+  inoremap <Tab> <C-N>
+  vnoremap <Tab> <C-N>
 
