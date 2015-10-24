@@ -107,6 +107,10 @@ alias t1 'tail -1'
 alias t2 'tail -2'
 alias t50 'tail -50'
 alias sshrhip 'ssh -Y mcoleman@10.15.50.108'
+setenv rhip 10.15.50.108
+setenv rhip mcoleman@$rhip
+alias sshrh 'ssh -Y $rhme'
+alias sshtmt 'sudo ssh -Y -L 80:localhost:5000 mcoleman9@tmt-ewab.eosl.gtri.org'
 alias hist 'history'
 alias hi 'history'
 alias go 'cd ~/\!:1'
@@ -119,7 +123,7 @@ alias ga 'git add'
 alias gd 'git diff'
 alias gvi 'git difftool'
 alias gl 'git log --graph'
-alias gs 'git status | grep -v doc'
+alias gs 'git status'
 alias gb 'git branch -av'
 alias gh 'git help'
 alias gf 'git fetch'
@@ -129,6 +133,7 @@ alias gcb 'git checkout -b'
 alias gcm 'git commit -m'
 alias grs 'git remote -v show'
 alias gbl 'git blame'
+alias gat 'git clone ssh://git@atlassian.elsys.gtri.org:7999/ewab/\!:1.git' 
 # ^^^^^ end git aliases ^^^^^^
 
 
