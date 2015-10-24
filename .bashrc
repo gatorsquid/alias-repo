@@ -143,12 +143,14 @@ alias h2='head -2'
 alias h3='head -3'
 alias h4='head -4'
 alias h5='head -5'
+alias h50='head -50'
 alias t='tail'
 alias t1='tail -1'
 alias t2='tail -2'
 alias t3='tail -3'
 alias t4='tail -4'
 alias t5='tail -5'
+alias t50='tail -50'
 alias hist='history'
 alias hi='history'
 alias ht='history | tail'
@@ -157,7 +159,9 @@ bb() { echo $1 | bc -l; }
 export rhip=10.15.50.108
 export d76ip=192.168.1.108  
 alias sshd76='ssh $d76ip'    
-alias sshrh='ssh -Y mcoleman@rhip'
+export rhme=mcoleman@$rhip
+alias sshrh='ssh -Y $rhme'
+alias sshtmt='sudo ssh -Y -L 80:localhost:5000 mcoleman9@tmt-ewab.eosl.gtri.org'
 alias fii='find . -iname '
 alias fwc='find . | wc'
 alias lwc='l . | wc'
@@ -169,7 +173,7 @@ alias fcl='fc -l'
 alias sdix='ssh -N -L 12343:localhost:80 gitolite@dixie.elsys.private &'
 alias eject='diskutil unmount'
 alias colget='python ~/colget.py'
-alias sshtmt='sudo ssh -Y -L 80:localhost:5000 mcoleman9@tmt.eosl.gtri.org'
+alias sihere='scenario=$PWD;SCENARIO=$PWD;source initialize.bash'
 # # Add latex to PATH on MacDarcy
 export PATH=$PATH:/usr/local/texlive
 alias apwd='a=$PWD'
@@ -199,6 +203,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias grs='git remote -v show'
 alias gbl='git blame'
+gat() { git clone ssh://git@atlassian.elsys.gtri.org:7999/ewab/$1.git; } 
 # ^^^^^ end Micah's git aliases ^^^^^^
 
 
