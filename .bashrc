@@ -108,8 +108,8 @@ fi
 # vvvvvv Micah's aliases vvvvv
 alias df='df -h'
 alias l='ls -lahtrG'
-alias ld='l | grep ^d'
-alias ldnod='ld | grep -Ev "\.\S*$"'
+alias ldir='l | grep ^d'
+alias ldnod='ldir | grep -Ev "\.\S*$"'
 alias lnod='l | grep -Ev "\.\S*$"'
 cdl() { cd $1; l;}
 alias cp='cp -p'
@@ -119,8 +119,11 @@ else
     alias d='du -h --max-depth=1'
 fi
 alias dg='d | grep G'
+alias dgm='d | grep -e G -e M'
+alias dqr='diff -qr'
 # alias grep='grep -n --color=auto'
 alias g='grep -n --color=auto'
+alias igrep='grep -i'
 alias p='python'
 alias pmc='python -m cProfile -s time'
 export PYTHONPATH=/Library/Python/2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7:/usr/local/lib/python2.7/site-packages/:/usr/local/lib/python2.7/site-packages/gtk-2.0
@@ -131,7 +134,7 @@ alias godb='cd ~/Dropbox'
 alias cut='cut --delimiter=" "'
 alias vib='vi ~/.bashrc'
 alias sob='source ~/.bashrc'
-alias viv='sudo vi /usr/share/vim/vimrc'
+alias viv='sudo vi ~/.vimrc'
 alias goback='cd $OLDPWD'
 alias vi='vim'
 alias h='head'
@@ -152,7 +155,9 @@ alias ht='history | tail'
 go() { cd ~/$1; }
 bb() { echo $1 | bc -l; }
 export rhip=10.15.50.108
-alias sshrhip='ssh mcoleman@10.15.50.108'
+export d76ip=192.168.1.108  
+alias sshd76='ssh $d76ip'    
+alias sshrh='ssh -Y mcoleman@rhip'
 alias fii='find . -iname '
 alias fwc='find . | wc'
 alias lwc='l . | wc'
@@ -164,14 +169,25 @@ alias fcl='fc -l'
 alias sdix='ssh -N -L 12343:localhost:80 gitolite@dixie.elsys.private &'
 alias eject='diskutil unmount'
 alias colget='python ~/colget.py'
+alias sshtmt='sudo ssh -Y -L 80:localhost:5000 mcoleman9@tmt.eosl.gtri.org'
+# # Add latex to PATH on MacDarcy
+export PATH=$PATH:/usr/local/texlive
+alias apwd='a=$PWD'
+alias cda='cd $a'
+alias bpwd='b=$PWD'
+alias cdb='cd $b'
 # ^^^^^^ end Micah's aliases ^^^^
 
 
+# vvvvv gtri work aliases vvvvvvvvvv
+alias sihere='export scenario=$PWD;export SCENARIO=$PWD;source initialize.bash'
+alias pp='perl $SUPDIR/toolbox/plotter/plotter.pl'
+# vvvvv end gtri work aliases vvvvvvvvvv
 
 # vvvvv Micah's git aliases vvvvvvvvvv
 alias ga='git add'
 alias gd='git diff'
-alias gdt='git difftool'
+alias gvi='git difftool'
 alias gl='git log --graph'
 alias gs='git status'
 alias gb='git branch -av'
@@ -182,6 +198,7 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias grs='git remote -v show'
+alias gbl='git blame'
 # ^^^^^ end Micah's git aliases ^^^^^^
 
 
