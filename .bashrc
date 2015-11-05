@@ -235,3 +235,5 @@ alias jc='javac'
 
 
 
+eval `ssh-agent`
+ssh-add
