@@ -125,8 +125,10 @@ alias dqr='diff -qr'
 alias g='grep -n --color=auto'
 alias igrep='grep -i'
 alias p='python'
+alias p2='python2'
+alias p3='python3'
 alias pmc='python -m cProfile -s time'
-export PYTHONPATH=/Library/Python/2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7:/usr/local/lib/python2.7/site-packages/:/usr/local/lib/python2.7/site-packages/gtk-2.0
+# export PYTHONPATH=/Library/Python/2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7:/usr/local/lib/python2.7/site-packages/:/usr/local/lib/python2.7/site-packages/gtk-2.0
 alias bc='bc -q'
 alias pe='perl'
 alias pw='perl -w'
@@ -176,10 +178,12 @@ alias colget='python ~/colget.py'
 alias sihere='scenario=$PWD;SCENARIO=$PWD;source initialize.bash'
 # # Add latex to PATH on MacDarcy
 export PATH=$PATH:/usr/local/texlive
-alias apwd='a=$PWD'
-alias cda='cd $a'
-alias bpwd='b=$PWD'
-alias cdb='cd $b'
+alias apwd='a="$PWD"'
+alias cda='cd "$a"'
+alias bpwd='b="$PWD"'
+alias cdb='cd "$b"'
+alias cpwd='c="$PWD"'
+alias cdc='cd "$c"'
 # ^^^^^^ end Micah's aliases ^^^^
 
 
@@ -193,6 +197,8 @@ alias ga='git add'
 alias gd='git diff'
 alias gvi='git difftool'
 alias gl='git log --graph'
+alias gl1='git log --graph -1'
+alias gl2='git log --graph -2'
 alias gs='git status'
 alias gb='git branch -av'
 alias gh='git help'
@@ -204,6 +210,9 @@ alias gcm='git commit -m'
 alias grs='git remote -v show'
 alias gbl='git blame'
 gat() { git clone ssh://git@atlassian.elsys.gtri.org:7999/ewab/$1.git; } 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+fi
 # ^^^^^ end Micah's git aliases ^^^^^^
 
 
