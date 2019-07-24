@@ -52,14 +52,14 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\W\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)} \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -124,10 +124,16 @@ alias dqr='diff -qr'
 # alias grep='grep -n --color=auto'
 alias g='grep -n --color=auto'
 alias igrep='grep -i'
+alias hd='hexdump -C'
+alias python2='/Users/mcoleman9/anaconda2/bin/python'
+# alias python3='/Users/mcoleman9/anaconda3/bin/python'
+alias conda2='~/anaconda2/bin/conda'
+alias python=python3
 alias p='python'
 alias p2='python2'
 alias p3='python3'
 alias pmc='python -m cProfile -s time'
+alias jun='jupyter notebook'
 # export PYTHONPATH=/Library/Python/2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7:/usr/local/lib/python2.7/site-packages/:/usr/local/lib/python2.7/site-packages/gtk-2.0
 alias bc='bc -q'
 alias pe='perl'
@@ -184,6 +190,7 @@ alias bpwd='b="$PWD"'
 alias cdb='cd "$b"'
 alias cpwd='c="$PWD"'
 alias cdc='cd "$c"'
+alias g11='g++ --std=c++11'
 # ^^^^^^ end Micah's aliases ^^^^
 
 
@@ -200,7 +207,8 @@ alias gl='git log --graph'
 alias gl1='git log --graph -1'
 alias gl2='git log --graph -2'
 alias gs='git status'
-alias gb='git branch -av'
+alias gb='git branch -av --sort=-committerdate'
+alias gbh='gb | head -20'
 alias gh='git help'
 alias gf='git fetch'
 alias gfb='gf;gb'
@@ -210,6 +218,7 @@ alias gcm='git commit -m'
 alias grs='git remote -v show'
 alias gbl='git blame'
 gat() { git clone ssh://git@atlassian.elsys.gtri.org:7999/ewab/$1.git; } 
+geosl() { git clone https://mcoleman9@eoslcm.gtri.gatech.edu/stash/scm/ewab/$1.git; } 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
       . $(brew --prefix)/etc/bash_completion
 fi
@@ -244,5 +253,37 @@ alias jc='javac'
 
 
 
-eval `ssh-agent`
-ssh-add
+# eval `ssh-agent`
+# ssh-add
+
+
+export POLARIS_DEPS_DIR=~/traffic/polaris/polarisdeps
+export PATH="$PATH:~/traffic/SUMO/sumo-0.31.0/bin"
+export SUMO_HOME="~/traffic/SUMO/sumo-0.31.0"
+
+alias gof='cd ~/chaff/rcs/FiberCode'
+
+# add maven to PATH
+export PATH="$PATH:~/maven/bin"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+
+# vvvvvvvvvvvvvvvvvv HACCS vvvvvvvvvvvvvvv
+# let direnv integrate with the shell for Rhamnousia / Lavos
+export LAVOWEB_CONFIG=~/.config/lavoweb/config
+eval "$(direnv hook bash)"
+eval "$(pyenv init -)"
+alias prfr="flask run" #"poetry run flask run"
+alias prpt="poetry run pytest"
+alias lup="lavo_util populate 2019-05-22"
+alias get-token="~/.get-token"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down --volumes"
+alias dbtdp="docker build -t docker-postgres ."
+export PGPASSWORD="lavolib_testing"
+alias lavoweb-cli="~/stash/lavoweb-cli/target/release/lavoweb-cli"
+# ^^^^^^^^^^^^^^^^^^ HACCS ^^^^^^^^^^^
