@@ -1,0 +1,20 @@
+[user]
+      email = micah.coleman@gtri.gatech.edu
+      name = Micah Coleman
+[merge]
+      tool = vimdiff
+[push]
+      tool = vimdiff
+      default = simple
+[diff]
+      tool = vimdiff
+      prompt = false
+[difftool]
+	prompt = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/mcoleman9/.gitignore_global
